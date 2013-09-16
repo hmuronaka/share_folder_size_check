@@ -1,7 +1,8 @@
 # coding: utf-8
 require 'kconv'
 
-module Windows::IO
+module Windows
+module IO
 
   class FileInfo
 
@@ -44,4 +45,5 @@ module Windows::IO
     end
 
   end
+end
 end

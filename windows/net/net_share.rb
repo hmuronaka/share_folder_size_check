@@ -2,9 +2,10 @@
 
 require 'kconv'
 
-module Windows::Net
+module Windows
+module Net
 
- def each_share_folder(&block)
+ def self.each_share_folder(&block)
     result = `net share`.toutf8
     state = :prev_header
     result.each_line do |line|
@@ -29,7 +30,7 @@ module Windows::Net
   end
 
 private
- def parse_detail(detail, &block)
+ def self.parse_detail(detail, &block)
     name = ""
     path = ""
     detail.each_line do |line|
@@ -44,5 +45,5 @@ private
     end
  end
 end
-
+end
 
