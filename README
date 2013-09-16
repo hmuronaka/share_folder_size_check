@@ -1,0 +1,24 @@
+Net Share for Ruby
+======================
+Windows XP/2003の net shareコマンドの内容をrubyで扱えるようにする。
+net shareは、そのＰＣ上の共有フォルダの一覧を表示するコマンド。
+
+# API
+
+## Net::Share::each_share_folder(&block)
+ＰＣ上の共有フォルダの各情報(共有ファイル名、パス）をブロックに渡す。
+
+利用例 (folder_size_check.rb参照)
+```ruby
+
+Net::Share::each_share_folder do |name,path|
+  puts <<STR
+- name: #{name}
+  path: #{path}
+STR
+end
+
+# 問題点
+作成中のため。絵に描いた餅。
+共有ファイル名に空白がある場合は、正しく処理できないバグがあります。
+
